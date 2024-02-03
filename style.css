@@ -148,6 +148,7 @@ body {
 
 #contact {
     position: absolute;
+    cursor: pointer;
     letter-spacing: 0.25rem;
     bottom: 50%;
     right: 0%;
@@ -161,6 +162,17 @@ body {
     animation: show-after-scroll linear forwards;
     animation-timeline: scroll();
     animation-range: 80vh 100vh;
+}
+
+#contactInfoContainer {
+    opacity: 0;
+}
+
+#contactInfoContainer.contactInfoShow {
+    opacity: 1;
+    height: 50%;
+    color: #fff;
+    border: red solid 4px;
 }
 
 @keyframes show-after-scroll {
