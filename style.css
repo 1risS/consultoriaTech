@@ -35,7 +35,6 @@ body {
 
     animation: sticky-parallax-header-move-and-size linear forwards;
     animation-timeline: scroll();
-    animation-range: 0vh 90vh;
 }
 
 @keyframes sticky-parallax-header-move-and-size {
@@ -63,7 +62,6 @@ body {
     z-index: 1;
     animation: when-scrolling linear forwards;
     animation-timeline: scroll();
-    animation-range: 0vh 90vh;
     font-family: 'Darker Grotesque', sans-serif;
     font-weight: 900;
     font-size: 8rem;
@@ -100,7 +98,6 @@ body {
     color: red;
     animation: when-scrolling-2 linear forwards;
     animation-timeline: scroll();
-    animation-range: 0vh 90vh;
 }
 
 @keyframes when-scrolling-2 {
@@ -128,7 +125,6 @@ body {
     font-size: 1rem;
     animation: hide-after-scroll linear forwards;
     animation-timeline: scroll();
-    animation-range: 0vh 50vh;
     width: 100%;
     transform: rotate(15deg);
 }
@@ -141,7 +137,6 @@ body {
     font-size: 1rem;
     animation: hide-after-scroll linear forwards;
     animation-timeline: scroll();
-    animation-range: 0vh 50vh;
     width: 100%;
     transform: rotate(-15deg);
 }
@@ -161,41 +156,41 @@ body {
     opacity: 0;
     animation: show-after-scroll linear forwards;
     animation-timeline: scroll();
-    animation-range: 80vh 100vh;
 }
 
 #contactInfoContainer {
     display: none;
-    /* Hidden by default */
     position: fixed;
-    /* Stay in place */
     z-index: 1;
-    /* Sit on top */
     left: 0;
     top: 0;
     width: 100%;
-    /* Full width */
-    height: 100%;
-    /* Full height */
-    overflow: auto;
-    /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0);
-    /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.4);
-    /* Black w/ opacity */
+    height: 100vh;
+    overflow: none;
+    background-color: rgba(1, 1, 0, 0.4);
 }
 
 .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    /* 15% from the top and centered */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: white;
     padding: 20px;
-    border: 1px solid #888;
     width: 80%;
-    height: 100%;
-    /* Could be more or less, depending on screen size */
     display: flex;
     flex-direction: column;
+    justify-content: center;
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.icon {
+    /* height: 100px; */
+    margin: 20px;
 }
 
 .close {
@@ -223,9 +218,9 @@ body {
 .modal-text {
     font-family: 'Darker Grotesque', sans-serif;
     font-weight: 900;
-    font-size: 60px;
-    color: red;
-    -webkit-text-stroke: #000 2px;
+    font-size: 50px;
+    color: black;
+    /* -webkit-text-stroke: #000 2px; */
 }
 
 @keyframes show-after-scroll {
@@ -270,7 +265,6 @@ body {
     opacity: 0;
     animation: show-after-scroll-2 linear forwards;
     animation-timeline: scroll();
-    animation-range: 80vh 100vh;
 }
 
 @keyframes show-after-scroll-2 {
@@ -310,19 +304,20 @@ body {
     position: relative;
     animation: down 1.5s infinite;
     -webkit-animation: down 1.5s infinite;
-
-    &::before {
-        content: '';
-        position: absolute;
-        top: 9px;
-        left: 11px;
-        width: 12px;
-        height: 12px;
-        border-left: 2px solid #ffffff;
-        border-bottom: 2px solid #ffffff;
-        transform: rotate(-45deg);
-    }
 }
+
+.scrollDown::before {
+    content: '';
+    position: absolute;
+    top: 9px;
+    left: 11px;
+    width: 12px;
+    height: 12px;
+    border-left: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    transform: rotate(-45deg);
+}
+
 
 @keyframes down {
     0% {
@@ -346,7 +341,6 @@ body {
     opacity: 1;
     animation: hide-after-scroll linear forwards;
     animation-timeline: scroll();
-    animation-range: 0vh 50vh;
 }
 
 @keyframes hide-after-scroll {
@@ -356,6 +350,7 @@ body {
 
     to {
         opacity: 0;
+        z-index: -4;
     }
 }
 
@@ -374,6 +369,7 @@ body {
     width: 100%;
     display: flex;
     font-family: 'Darker Grotesque', sans-serif;
+    pointer-events: none;
 }
 
 .scrollX div {
@@ -475,7 +471,7 @@ body {
 }
 
 
-#empty {
+.empty {
     background-color: black;
 }
 
@@ -522,6 +518,10 @@ body {
 
 
 @media screen and (max-width: 768px) {
+
+    .modal-text {
+        font-size: 20px;
+    }
 
     #sticky-parallax-header {
         height: 100vh;
@@ -729,7 +729,8 @@ body {
         opacity: 0;
         animation: show-after-scroll linear forwards;
         animation-timeline: scroll();
-        animation-range: 80vh 100vh;
+        z-index: 1000;
+        border: 1px solid red;
     }
 
     @keyframes show-after-scroll {
