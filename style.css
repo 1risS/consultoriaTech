@@ -143,6 +143,7 @@ body {
 
 #contact {
     position: absolute;
+    z-index: 10;
     cursor: pointer;
     letter-spacing: 0.25rem;
     bottom: 50%;
@@ -165,7 +166,7 @@ body {
     left: 0;
     top: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     overflow: none;
     background-color: rgba(1, 1, 0, 0.4);
 }
@@ -174,6 +175,7 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
+    transform: translate(-50%, -50%);
     background-color: white;
     padding: 20px;
     width: 80%;
@@ -211,14 +213,14 @@ body {
 #contactInfoContainer.contactInfoShow {
     display: block;
     opacity: 1;
-    height: 50%;
+    height: 100%;
     color: #fff;
 }
 
 .modal-text {
     font-family: 'Darker Grotesque', sans-serif;
     font-weight: 900;
-    font-size: 50px;
+    font-size: 40px;
     color: black;
     /* -webkit-text-stroke: #000 2px; */
 }
@@ -363,6 +365,7 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .scrollX {
@@ -386,6 +389,7 @@ body {
 .scrollX.text3 {
     height: 80%;
     overflow: hidden;
+    z-index: 1;
 }
 
 .scrollX.text3 div {
@@ -514,6 +518,22 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-color: red;
+}
+
+.desc {
+    color: black;
+    font-family: 'Darker Grotesque', sans-serif;
+    font-weight: 600;
+    font-size: 35px;
+    background-color: red;
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    width: 60%;
+    height: 100%;
+    padding-top: 20rem;
+    padding-left: 5rem;
+    opacity: 0;
 }
 
 
@@ -705,6 +725,14 @@ body {
         display: none
     }
 
+    .modal-content {
+        padding: 0;
+    }
+
+    .close {
+        margin: 5% 5% 0 0;
+    }
+
 }
 
 @media screen and (max-width: 320px) {
@@ -729,8 +757,6 @@ body {
         opacity: 0;
         animation: show-after-scroll linear forwards;
         animation-timeline: scroll();
-        z-index: 1000;
-        border: 1px solid red;
     }
 
     @keyframes show-after-scroll {
@@ -787,4 +813,17 @@ body {
     .column-title {
         font-size: 1.2rem;
     }
+
+    .close {
+        margin-right: 5%;
+    }
+
+    .modal-content {
+        padding: 0;
+    }
+
+    .modal-text {
+        font-size: 15px;
+    }
+
 }
