@@ -425,9 +425,6 @@ body {
 
 
 .column {
-    height: 50vh;
-    min-width: 50px;
-    flex-grow: 1;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -435,22 +432,6 @@ body {
     justify-content: flex-start;
     overflow: hidden;
 }
-
-/* .column:hover::before {
-    transform: scaleX(0.6);
-}
-
-.column::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transition: transform .35s cubic-bezier(.51, .11, .17, .98);
-    transform: scaleX(0);
-    transform-origin: right;
-} */
 
 .column-inner {
     width: 100%;
@@ -480,7 +461,6 @@ body {
 }
 
 #empty::before {
-    /* background-image: url(./imgs/IR.png); */
     background-position: center;
     background-repeat: no-repeat;
     background-color: black;
@@ -491,7 +471,6 @@ body {
 }
 
 #diagnostico::before {
-    /* background-image: url(./imgs/IR.png); */
     background-position: center;
     background-repeat: no-repeat;
     background-color: red;
@@ -502,7 +481,6 @@ body {
 }
 
 #formacion::before {
-    /* background-image: url(./imgs/lidar.png); */
     background-position: center;
     background-repeat: no-repeat;
     background-color: red;
@@ -514,7 +492,6 @@ body {
 }
 
 #networking::before {
-    /* background-image: url(./imgs/luces.png); */
     background-position: center;
     background-repeat: no-repeat;
     background-color: red;
@@ -536,8 +513,41 @@ body {
     opacity: 0;
 }
 
+.desc-mobile {
+    color: black;
+    font-family: 'Darker Grotesque', sans-serif;
+    font-weight: 600;
+    font-size: 35px;
+    background-color: red;
+    display: none;
+}
 
 @media screen and (max-width: 768px) {
+
+    .landingContainer {
+        animation: none;
+        position: static;
+    }
+
+    #cover {
+        display: none;
+    }
+
+    #logo {
+        animation: none;
+    }
+
+    .title {
+        animation: none;
+    }
+
+    .desc-mobile {
+        display: block;
+    }
+
+    .column {
+        overflow: visible;
+    }
 
     .modal-text {
         font-size: 20px;
@@ -545,6 +555,7 @@ body {
 
     #sticky-parallax-header {
         height: 100vh;
+        animation: none;
     }
 
     .title {
